@@ -15,6 +15,5 @@
 //     return view('welcome');
 // });
 
-// Route::get('/','TodosController@index');
-
+Route::get('/','TodosController@index');
 Route::resource('todos','TodosController');

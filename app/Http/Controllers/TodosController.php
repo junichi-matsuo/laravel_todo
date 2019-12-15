@@ -17,7 +17,22 @@ class TodosController extends Controller
       $todo = new Todo();
       $todo->body = $request->body;
       $todo->save();
-      return redirect('/todos');
-
+      return redirect('/');
     }
+
+    public function destroy(todo $todo) {
+        $todo->delete();
+        return redirect('/');
+      }
+
+    public function edit(todo $todo) {
+      return view('todos.edit')->with('todo',$todo);
+    }
+
+    public function update(Request $request,todo $todo) {
+      $todo->body = $request->body;
+      $todo->save();
+      return redirect('/');
+    }
+
 }
